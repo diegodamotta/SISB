@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<settings xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0   
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	<localRepository>C:\lib\wdev\repository</localRepository>
+	
+	<servers>
+		<server>
+			<id>bspwdev.internal.releases.repo</id>
+			<username>guest</username>
+			<password>guest</password>
+		</server>
+
+		<server>
+			<id>bspwdev.releases.repo</id>
+			<username>guest</username>
+			<password>guest</password>
+		</server>
+
+		<server>
+			<id>bspwdev.snapshots.repo</id>
+			<username>guest</username>
+			<password>guest</password>
+		</server>
+	</servers>
+
+	<profiles>
+		<profile>
+			<id>wdev</id>
+
+			<!-- 
+			<properties> 
+				<was61.home>C:\RAD75\IBM\SDP\runtimes\base_v61</was61.home>
+				<was7.home>C:\RAD75\IBM\SDP\runtimes\base_v7</was7.home>
+			</properties> 
+			-->
+			
+			 <pluginRepositories>
+				<pluginRepository>
+				  <id>central</id>
+				  <name>Maven Plugin Repository</name>
+				  <url>http://repo1.maven.org/maven2</url>
+				  <layout>default</layout>
+				  <snapshots>
+					<enabled>false</enabled>
+				  </snapshots>
+				  <releases>
+					<updatePolicy>never</updatePolicy>
+				  </releases>
+				</pluginRepository>
+				<pluginRepository>
+					<id>Codehaus repository</id>
+					<url>http://repository.codehaus.org/</url>
+				</pluginRepository>
+			  </pluginRepositories>
+
+			<repositories>
+				<repository>
+					<id>maven</id>
+					<name>maven</name>
+					<url>http://repo1.maven.org/maven2/</url>
+				</repository>
+
+				<repository>
+					<name>WDEV Libs Repository</name>
+					<id>wdev.libs</id>
+					<url>http://artifact.wdev.com.br/archiva/repository/internal/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+
+				<repository>
+					<name>WDEV Snapshots Repository</name>
+					<id>wdev.snaps</id>
+					<url>http://artifact.wdev.com.br/archiva/repository/snapshots/</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+		
+		<profile>
+			<id>bradseg</id>
+			<properties>
+				<was61.home>C:\RAD75\IBM\SDP\runtimes\base_v61</was61.home>
+				<was7.home>C:\RAD75\IBM\SDP\runtimes\base_v7</was7.home>
+				<bspwdev.releases.repo.url>http://artifact.dsv.bradseg.com.br/artifact/repository/releases</bspwdev.releases.repo.url>
+				<bspwdev.internal.releases.repo.url>http://artifact.dsv.bradseg.com.br/artifact/repository/internal-releases</bspwdev.internal.releases.repo.url>
+				<bspwdev.snapshots.repo.url>http://artifact.dsv.bradseg.com.br/artifact/repository/snapshots</bspwdev.snapshots.repo.url>
+			</properties>
+
+			<repositories>
+				<repository>
+					<name>BSP/WDEV Releases Repository</name>
+					<id>bspwdev.internal.releases.repo</id>
+					<url>http://artifact.dsv.bradseg.com.br/artifact/repository/internal-releases</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+
+				<repository>
+					<name>BSP/WDEV Releases Repository</name>
+					<id>bspwdev.releases.repo</id>
+					<url>http://artifact.dsv.bradseg.com.br/artifact/repository/releases</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+
+				<repository>
+					<name>BSP/WDEV Snapshots Repository</name>
+					<id>bspwdev.snapshots.repo</id>
+					<url>http://artifact.dsv.bradseg.com.br/artifact/repository/snapshots</url>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+
+	<activeProfiles>
+		<activeProfile>bradseg</activeProfile>
+		<activeProfile>tomcat</activeProfile>
+		<activeProfile>wdev</activeProfile>
+	</activeProfiles>
+
+</settings>
